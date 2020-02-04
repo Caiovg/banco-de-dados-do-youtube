@@ -1,0 +1,60 @@
+para entrar no console de comandos do xampp mysql abra o xampp e clique shell, e seguida digite"mysql -u root",
+e aijá pode digitar "show databases;" vai te mostrar algumas opções de bancos de dados, e so usar os comandos que vc usa no 
+workbench,
+
+para verificar que banco de dados vc esta usando no momento e so usar o "status;"
+
+"show create table amigos;" vc irar ver qual e o comando que foi utilizado para criar a tabela
+
+--
+CREATE DATABASE IF NOT EXISTS `exemplo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `exemplo`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `amigos`
+--
+
+CREATE TABLE `amigos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `sexo` enum('M','F') NOT NULL,
+  `celular` varchar(15) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `amigos`
+--
+
+INSERT INTO `amigos` (`id`, `nome`, `sexo`, `celular`) VALUES
+(1, 'Maria', 'F', '2222-3333'),
+(2, 'João', 'M', '2222-3333'),
+(3, 'josé', 'M', '3333-4444'),
+(4, 'ana', 'F', '3333-4444');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `amigos`
+--
+ALTER TABLE `amigos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `amigos`
+--
+ALTER TABLE `amigos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
